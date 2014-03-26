@@ -1,0 +1,10 @@
+{% extends "layout.html" %}
+  {% block body %}
+    <h1>Adicionar contatos</h1>
+    <form action="{{url_for('contacts_add_post')}}" method="POST">
+        <input type="text" name="nome" placeholder="Nome">
+        <input type="email" name="email" placeholder="Email">
+        <input type="tel" name="telefone" placeholder="Telefone">
+        <button type="submit">Salvar</button>
+    </form>
+  {% endblock %}
