@@ -1,5 +1,8 @@
 from flask import Flask, render_template, request
+from flask.ext.pymongo import PyMongo
+
 app = Flask(__name__)
+mongo = PyMongo(app)
 
 @app.route('/')
 def index():
@@ -19,7 +22,9 @@ def contacts_add():
 
 @app.route('/contacts/add', methods=['POST'])
 def contacts_add_post():
-      return "Contato salvo com sucesso!"
+    data = {"nome":request.form["nome"], "email":request.form["email"], "telefone":request.form["telefone"]}
+    mongo.db.contacts.insert(data)
+    return "Contato salvo com sucesso!"
 
 if __name__ == '__main__':
     app.run(debug=True)
