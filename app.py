@@ -8,24 +8,24 @@ mongo = PyMongo(app)
 def index():
     return render_template("index.html")
 
-@app.route('/diary')
-def diary():
-    diary = mongo.db.diary.find()
-    return render_template("diary.html", diary=diary)
+@app.route('/notes')
+def notes():
+    notes = mongo.db.notes.find()
+    return render_template("notes.html", notes=notes)
 
-@app.route('/diary/add')
-def diary_add():
-    return render_template("diary_add.html")
+@app.route('/notes/add')
+def notes_add():
+    return render_template("notes_add.html")
 
-@app.route('/diary/add', methods=['POST'])
-def diary_add_post():
+@app.route('/notes/add', methods=['POST'])
+def notes_add_post():
     nota = {"tarefa":request.form["tarefa"], "data":request.form["data"]}
-    mongo.db.diary.insert(nota)
+    mongo.db.notes.insert(nota)
     return "Tarefa adicionada com sucesso!"
 
-@app.route('/diary/<ObjectId:id>/remover')
+@app.route('/notes/<ObjectId:id>/remover')
 def tarefa_rmv(id):
-    mongo.db.diary.remove(id)
+    mongo.db.notes.remove(id)
     return "Removido com sucesso"
 
 @app.route('/contacts')

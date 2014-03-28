@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+  {% block body %}
+    <h1>Notes</h1>
+    <a href="{{url_for('notes_add')}}">Adicionar</a>
+    <table>
+        <thead>
+            <tr>
+                <td>Data</td>
+                <td>Tarefas</td>
+                <td></td>
+            </tr>
+        </thead>
+        <tbody>
+            {% for diary in notes %}
+                <tr>
+                    <td>{{notes.data}}</td>
+                    <td>{{notes.tarefa}}</td>
+                    <td><a href="{{url_for('tarefa_rmv', id=notes._id)}}">Remover</a></td>
+                </tr>
+            {% else %}
+            <tr>
+                <td colspan="3"> Não há tarefas</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+
+    </table>
+  {% endblock %}
