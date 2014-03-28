@@ -1,4 +1,29 @@
 {% extends "layout.html" %}
   {% block body %}
     <h1>Contacts</h1>
+    <a href="{{url_for('contacts_add')}}">Adicionar</a>
+    <table>
+        <thead>
+            <tr>
+                <td>Nome</td>
+                <td>Email</td>
+                <td>Telefone</td>
+                <td></td>
+            </tr>
+        </thead>
+        <tbody>
+            {% for contact in contacts %}
+                <tr>
+                    <td>{{contact.nome}}</td>
+                    <td>{{contact.email}}</td>
+                    <td>{{contact.telefone}}</td>
+                    <td><a href="{{url_for('contacts_rmv', id = contact._id)}}">Remover</a></td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="4"> Não existem contatos</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
   {% endblock %}
