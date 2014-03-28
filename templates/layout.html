@@ -1,21 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Diary Ladies</title>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Diary Ladies</title>
+        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    </head>
+    <body>
+    <div class="container">
+    <div class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a href="{{url_for('index')}}" class="navbar-brand">Diary Ladies</a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="{{url_for('notes')}}">Notes</a></li>
+                    <li><a href="{{url_for('contacts')}}">Contacts</a></li>
+                    <li><a href="{{url_for('index')}}">Home</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
 
-  </head>
-  <body>
-  <ul>
-    <li><a href="{{url_for('notes')}}">Notes</a></li>
-    <li><a href="{{url_for('contacts')}}">Contacts</a></li>
-    <li><a href="{{url_for('index')}}">Home</a></li>
-  </ul>
-  {% block body %}
-  {% endblock %}
-
-  </body>
+    {% block body %}
+    {% endblock %}
+    </div>
+    </body>
 </html>
-

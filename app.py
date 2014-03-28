@@ -19,7 +19,7 @@ def notes_add():
 
 @app.route('/notes/add', methods=['POST'])
 def notes_add_post():
-    nota = {"tarefa":request.form["tarefa"], "data":request.form["data"]}
+    nota = {"tarefa":request.form["tarefa"], "date":request.form["date"]}
     mongo.db.notes.insert(nota)
     return "Tarefa adicionada com sucesso!"
 

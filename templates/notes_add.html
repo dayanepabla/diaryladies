@@ -1,9 +1,13 @@
 {% extends "layout.html" %}
   {% block body %}
     <h1>Adicionar Tarefas</h1>
-    <form action="{{url_for('notes_add_post')}}" method="POST">
-        <input type="text" name="tarefa" placeholder="Tarefa">
-        <input type="date" name="data" placeholder="Data">
-        <button type="submit">Salvar</button>
+    <form action="{{url_for('notes_add_post')}}" method="POST" class="form-inline">
+        <div class="form-group">
+            <input type="text" name="tarefa" placeholder="Tarefa" class="form-control">
+        </div>
+        <div class="form-group">
+            <input type="date" name="data" placeholder="Data" class="form-control">
+        </div>
+        <button type="submit" class="btn btn-primary">Salvar</button>
     </form>
   {% endblock %}
